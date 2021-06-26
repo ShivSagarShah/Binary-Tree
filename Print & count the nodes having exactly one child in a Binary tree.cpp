@@ -16,6 +16,7 @@ struct Node
 };
 
 vector<int> lst;
+int cnt = 0;
 
 // Function to find the nodes having single child
 
@@ -74,7 +75,7 @@ int CountExactlyOneChild(Node* root){
 
 //     if(root == NULL || (root->left == NULL && root->right == NULL)) return;
 
-//     if(root->left == NULL || root->right == NULL) count++;
+//     if(root->left == NULL || root->right == NULL) cnt++;
 //     CountExactlyOneChild(root->left);
 //     CountExactlyOneChild(root->right);
 
@@ -109,6 +110,7 @@ int main()
         }
     }
      cout<<CountExactlyOneChild(root)<<endl;
+    //CountExactlyOneChild(root);
     // cout<<count<<endl;
     return 0;
 }
