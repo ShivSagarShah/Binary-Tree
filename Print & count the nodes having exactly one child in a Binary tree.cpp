@@ -53,6 +53,36 @@ void printNodesOneChild(Node *root)  //Another Method
 //     printNodesOneChild(root->right);
 // }
 
+int CountExactlyOneChild(Node* root){
+    int ans;
+
+    if(root == NULL || root->left == NULL && root->right == NULL) return 0;
+
+    int leftside = CountExactlyOneChild(root->left);
+    int rightside = CountExactlyOneChild(root->right);
+
+    ans = leftside + rightside;
+
+    if(root->right == NULL || root->left == NULL) ans++;
+
+    return ans;
+
+}
+
+
+// void CountExactlyOneChild(Node* root){
+
+//     if(root == NULL || (root->left == NULL && root->right == NULL)) return;
+
+//     if(root->left == NULL || root->right == NULL) count++;
+//     CountExactlyOneChild(root->left);
+//     CountExactlyOneChild(root->right);
+
+
+// }
+
+
+
 //Driver code
 int main()
 {
@@ -78,6 +108,8 @@ int main()
             cout <<lst[i]<< endl;
         }
     }
+     cout<<CountExactlyOneChild(root)<<endl;
+    // cout<<count<<endl;
     return 0;
 }
 
